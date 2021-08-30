@@ -3,5 +3,9 @@ The fifth iteration of the Dungeon Crawl Classics Zero-Level Character Generator
 
 ---------------
 
+Update 1.01: 2021-08-29
+Updates to levelZeroCharacters.php, dcc_zero_characters.css, dcc_zero_character_sheet.png, and zeroLvOccupation.php.
+
+
 Initial commit: 2021-08-28
 The initial commit for the Greenleaf DCC Zero-Level Character Generator.
