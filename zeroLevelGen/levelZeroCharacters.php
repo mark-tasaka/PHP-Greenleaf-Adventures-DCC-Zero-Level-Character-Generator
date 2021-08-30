@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dungeon Crawl Classics Empire of the East Zero Level Character Generator</title>
+<title>Dungeon Crawl Classics Greenleaf Adventures Character Generator</title>
  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
 	<meta charset="UTF-8">
-	<meta name="description" content="Dungeon Crawl Classics Empire of the East Zero Level Character Generator. Goodman Games.">
+	<meta name="description" content="Dungeon Crawl Classics Greenleaf Adventures Character Generator. Goodman Games.">
 	<meta name="keywords" content="Dungeon Crawl Classics, Jim Wampler, Goodman Games,HTML5,CSS,JavaScript">
 	<meta name="author" content="Mark Tasaka 2021">
 		
@@ -218,17 +218,17 @@
         $professionNum0 = getOccupationNumber(); 
         $professionNum1 = getOccupationNumber(); 
         $professionNum2 = getOccupationNumber(); 
-        $professionNum3 = getOccupationNumber(); 
+        $professionNum3 = getOccupationNumber();
 
         $occupationArray0 = array();
         $occupationArray1 = array();
         $occupationArray2 = array();
         $occupationArray3 = array();
 
-        $occupationArray0 = getOccupationArray($professionNum0);
-        $occupationArray1 = getOccupationArray($professionNum1);
-        $occupationArray2 = getOccupationArray($professionNum2);
-        $occupationArray3 = getOccupationArray($professionNum3);
+        $occupationArray0 = getOccupation($professionNum0);
+        $occupationArray1 = getOccupation($professionNum1);
+        $occupationArray2 = getOccupation($professionNum2);
+        $occupationArray3 = getOccupation($professionNum3);
 
         
         $profession0 = $occupationArray0[0];
@@ -236,15 +236,15 @@
         $profession2 = $occupationArray2[0];
         $profession3 = $occupationArray3[0];
 
-        $trainedWeapon0 = $occupationArray0[1];
-        $trainedWeapon1 = $occupationArray1[1];
-        $trainedWeapon2 = $occupationArray2[1];
-        $trainedWeapon3 = $occupationArray3[1];
+        $trainedWeapon0 = $occupationArray0[2];
+        $trainedWeapon1 = $occupationArray1[2];
+        $trainedWeapon2 = $occupationArray2[2];
+        $trainedWeapon3 = $occupationArray3[2];
 
-        $weaponDamage0 = $occupationArray0[2];
-        $weaponDamage1 = $occupationArray1[2];
-        $weaponDamage2 = $occupationArray2[2];
-        $weaponDamage3 = $occupationArray3[2];
+        $weaponDamage0 = $occupationArray0[3];
+        $weaponDamage1 = $occupationArray1[3];
+        $weaponDamage2 = $occupationArray2[3];
+        $weaponDamage3 = $occupationArray3[3];
 
         $birthAugur0 = array();
         $birthAugur1 = array();
@@ -406,10 +406,12 @@
         $equipment2 = array();
         $equipment3 = array();
 
-        array_push($equipment0, $occupationArray0[3]);
-        array_push($equipment1, $occupationArray1[3]);
-        array_push($equipment2, $occupationArray2[3]);
-        array_push($equipment3, $occupationArray3[3]);
+        /*
+
+        array_push($equipment0, $occupationArray0[4]);
+        array_push($equipment1, $occupationArray1[4]);
+        array_push($equipment2, $occupationArray2[4]);
+        array_push($equipment3, $occupationArray3[4]);*/
 
         
         if($profession0 == "Cartwright")
