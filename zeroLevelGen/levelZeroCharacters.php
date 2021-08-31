@@ -32,6 +32,7 @@
     include 'php/luckySign.php';
     include 'php/wealth.php';
     include 'php/equipment.php';
+    include 'php/languages.php';
     
         
         if(isset($_POST["theSex"]))
@@ -207,12 +208,12 @@
             $hitPoints3 = 4;
         }
 
-        
+        /*
         if(isset($_POST["theStartingEquip"]))
         {
             $startingEquipment = $_POST["theStartingEquip"];
         
-        }
+        }*/
 
 
         $professionNum0 = getOccupationNumber(); 
@@ -235,6 +236,11 @@
         $profession1 = $occupationArray1[0];
         $profession2 = $occupationArray2[0];
         $profession3 = $occupationArray3[0];
+        
+        $species0 = $occupationArray0[1];
+        $species1 = $occupationArray1[1];
+        $species2 = $occupationArray2[1];
+        $species3 = $occupationArray3[1];
 
         $trainedWeapon0 = $occupationArray0[2];
         $trainedWeapon1 = $occupationArray1[2];
@@ -396,10 +402,16 @@
         $wealth2 = getStartingWealth();
         $wealth3 = getStartingWealth();
 
-        $languages0 = getLanguages($intelligenceMod0, $luckMod0, $birthAugurNo0);
-        $languages1 = getLanguages($intelligenceMod1, $luckMod1, $birthAugurNo1);
-        $languages2 = getLanguages($intelligenceMod2, $luckMod2, $birthAugurNo2);
-        $languages3 = getLanguages($intelligenceMod3, $luckMod3, $birthAugurNo3);
+        $languages0 = array();
+        $languages1 = array();
+        $languages2 = array();
+        $languages3 = array();
+        
+
+        $languages0 = getLanguages($intelligenceMod0, $luckMod0, $birthAugurNo0, $species0, $characterAlignment0, $intelligence0);
+        $languages1 = getLanguages($intelligenceMod1, $luckMod1, $birthAugurNo1, $species1, $characterAlignment1, $intelligence1);
+        $languages2 = getLanguages($intelligenceMod2, $luckMod2, $birthAugurNo2, $species2, $characterAlignment2, $intelligence2);
+        $languages3 = getLanguages($intelligenceMod3, $luckMod3, $birthAugurNo3, $species3, $characterAlignment3, $intelligence3);
 
         $equipment0 = array();
         $equipment1 = array();
@@ -486,6 +498,7 @@
             array_push($equipment3, $occupationArray3[4]);
         }
 
+        /*
         if($startingEquipment == 1)
         {
             $randomStartingEquip0 = getRandomEquipment();
@@ -504,7 +517,7 @@
             
             array_push($equipment3, ' & ');
             array_push($equipment3, $randomStartingEquip3);
-        }
+        }*/
 
 
     ?>
@@ -746,7 +759,30 @@
            
            <span id="languages0">
            <?php
-            echo $languages0;
+
+           $arraySize = count($languages0);
+
+           foreach($languages0 as $lan)
+           {
+               echo $lan;
+
+               --$arraySize;
+
+               if($arraySize > 1)
+               {
+                   echo ', ';
+               }
+               else if($arraySize === 1)
+               {
+                   echo ' & ';
+               }
+               else
+               {
+                    echo '';
+               }
+
+           }
+
            ?>
            </span>
 		 
@@ -1016,7 +1052,29 @@
            
            <span id="languages1">
            <?php
-            echo $languages1;
+
+           $arraySize = count($languages1);
+
+           foreach($languages1 as $lan)
+           {
+               echo $lan;
+
+               --$arraySize;
+
+               if($arraySize > 1)
+               {
+                   echo ', ';
+               }
+               else if($arraySize === 1)
+               {
+                   echo ' & ';
+               }
+               else
+               {
+                    echo '';
+               }
+
+           }
            ?>
            </span>
 
@@ -1286,7 +1344,28 @@
            
            <span id="languages2">
            <?php
-            echo $languages2;
+           $arraySize = count($languages2);
+
+           foreach($languages2 as $lan)
+           {
+               echo $lan;
+
+               --$arraySize;
+
+               if($arraySize > 1)
+               {
+                   echo ', ';
+               }
+               else if($arraySize === 1)
+               {
+                   echo ' & ';
+               }
+               else
+               {
+                    echo '';
+               }
+
+           }
            ?>
            </span>
 
@@ -1553,7 +1632,28 @@
            
            <span id="languages3">
            <?php
-            echo $languages3;
+           $arraySize = count($languages3);
+
+           foreach($languages3 as $lan)
+           {
+               echo $lan;
+
+               --$arraySize;
+
+               if($arraySize > 1)
+               {
+                   echo ', ';
+               }
+               else if($arraySize === 1)
+               {
+                   echo ' & ';
+               }
+               else
+               {
+                    echo '';
+               }
+
+           }
            ?>
            </span>
 		 
