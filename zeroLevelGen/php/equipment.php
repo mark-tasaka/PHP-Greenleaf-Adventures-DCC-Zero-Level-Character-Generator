@@ -35,4 +35,68 @@ function getRandomEquipment()
 }
 
 
+function getArmour($select)
+{
+    if($select === 98)
+    {
+        return 'Hide Armour';
+    }
+    else if($select === 99)
+    {
+        return 'Leather Armour';
+    }
+    else if($select === 100)
+    {
+        return 'Shield';
+    }
+    else
+    {
+        return '';
+    }
+}
+
+
+function getACBonusArmour($select)
+{
+    if($select === 98)  
+    {
+        return 3;
+    }
+    else if($select === 99)
+    {
+        return 2;
+    }
+    else if($select === 100)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+
+function getFumbleDie($select)
+{
+    if($select === 98)  
+    {
+        return "d12";
+    }
+    else if($select === 99)
+    {
+        return "d8";
+    }
+    else if($select === 100)
+    {
+        return "d8";
+    }
+    else
+    {
+        return "d4";
+    }
+}
+
+
+
 ?>

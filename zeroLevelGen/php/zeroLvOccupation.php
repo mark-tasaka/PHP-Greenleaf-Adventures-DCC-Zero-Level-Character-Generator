@@ -8,7 +8,7 @@ function getOccupation($input)
 		$a01 = array("Dwarven Blacksmith", "Dwarf", "Hammer (as Club)", "1d4", "Mithril, 1 oz.");
 		$a02 = array("Dwarven Riveter", "Dwarf", "Hammer (as Club)", "1d4", "Mithril, 1 oz.");
 		$a03 = array("Dwarven Chestmaker", "Dwarf", "Chisel (as Dagger)", "1d4", "Wood, 10 lbs.");
-		$a04 = array("Dwarven Herder", "Dwarf", "Staff", "1d4", "Sow (see notes)");
+		$a04 = array("Dwarven Herder", "Dwarf", "Staff", "1d4", "Sow");
 		$a05 = array("Dwarven Miner", "Dwarf", "Pick (as Club)", "1d4", "Lantern");
 		$a06 = array("Dwarven Linkman", "Dwarf", "Pick (as Club)", "1d4", "Lantern");
 		$a07 = array("Dwarven Mushroom Farmer", "Dwarf", "Shovel (as Staff)", "1d4", "Sack");
@@ -20,7 +20,7 @@ function getOccupation($input)
 		$a11 = array("Elven Artisan", "Elf", "Staff", "1d4", "Clay, 1 lbs.");
 		$a12 = array("Elven Barrister", "Elf", "Quill (as Dart)", "1d4", "Book");
 		$a13 = array("Elven Chandler", "Elf", "Scissors (as Dagger)", "1d4", "Candles, 20");
-		$a14 = array("Elven Falconer", "Elf", "Dagger", "1d4", "Falcon (see notes)");
+		$a14 = array("Elven Falconer", "Elf", "Dagger", "1d4", "Falcon");
 		$a15 = array("Elven Forester", "Elf", "Staff", "1d4", "Herbs, 1 lbs.");
 		$a16 = array("Elven Herbalist", "Elf", "Staff", "1d4", "Herbs, 1 lbs.");
 		$a17 = array("Elven Glassblower", "Elf", "Hammer (as Club)", "1d4", "Glass Beads");
@@ -35,14 +35,14 @@ function getOccupation($input)
 		$a25 = array("Halfling Gypsy", "Halfling", "Sling", "1d4", "Hex Doll");
 		$a26 = array("Halfling Haberdasher", "Halfling", "Scissors (as Dagger)", "1d4", "Fine suits, 3 sets");
 		$a27 = array("Halfling Mariner", "Halfling", "Knife (as Dagger)", "1d4", "Sailcloth, 2 yards");
-		$a28 = array("Halfling Moneylender", "Halfling", "Short Sword", "1d6", "5 gp, 10 sp, 200 cp");
-		$a29 = array("Halfling Trader", "Halfling", "Short Sword", "1d6", "20 sp");
+		$a28 = array("Halfling Moneylender", "Halfling", "Short Sword", "1d6", "");
+		$a29 = array("Halfling Trader", "Halfling", "Short Sword", "1d6", "");
 		$a30 = array("Halfling Vagrant", "Halfling", "Club", "1d4", "Begging Bowl");
 		//Humans 31 -
 		//Humans 31 - 40 Alchemist to Caravan Guard
 		// 32 - Animal Trainer
 		$a31 = array("Alchemist", "Human", "Staff", "1d4", "Oil, 1 flask");
-		$a32 = array("Animal Trainer", "Human", "Club", "1d4", "Pony (see notes)");
+		$a32 = array("Animal Trainer", "Human", "Club", "1d4", "Pony");
 		$a33 = array("Armourer", "Human", "Hammer (as Club)", "1d4", "Iron Helmet");
 		$a34 = array("Astrologer", "Human", "Dagger", "1d4", "Spyglass");
 		$a35 = array("Barber", "Human", "Razor (as Dagger)", "1d4", "Scissors (as Dagger)");
@@ -80,7 +80,7 @@ function getOccupation($input)
 		$a63 = array("Beggar", "Human", "Sling", "1d4", "Crutches");
 		$a64 = array("Healer", "Human", "Club", "1d4", "Holy Water, 1 Vial");
 		$a65 = array("Herbalist", "Human", "Sling", "1d4", "Herbs, 1 lbs.");
-		$a66 = array("Herder", "Human", "Staff", "1d4", "Herding Dog (see notes)");
+		$a66 = array("Herder", "Human", "Staff", "1d4", "Herding Dog");
 		$a67 = array("Hunter", "Human", "Short Bow", "1d6", "Deer Pelt");
 		$a68 = array("Huntsman", "Human", "Short Bow", "1d6", "Deer Pelt");
 		$a69 = array("Indentured Servant", "Human", "Staff", "1d4", "Locket");
@@ -90,7 +90,7 @@ function getOccupation($input)
 		$a72 = array("Locksmith", "Human", "Dagger", "1d4", "Fine Tools");
 		$a73 = array("Mendicant", "Human", "Club", "1d4", "Cheese Dip");
 		$a74 = array("Locksmith", "Human", "Dagger", "1d4", "Fine Tools");
-		$a75 = array("Merchant", "Human", "Dagger", "1d4", "4 gp, 14 sp, 27 cp");
+		$a75 = array("Merchant", "Human", "Dagger", "1d4", "");
 		$a76 = array("Miller/Baker", "Human", "Club", "1d4", "Flour, 1 lbs.");
 		$a77 = array("Minstrel", "Human", "Dagger", "1d4", "Ukulele");
 		$a78 = array("Noble", "Human", "Longsword", "1d8", "Gold Ring worth 10 gp");
@@ -104,7 +104,7 @@ function getOccupation($input)
 		$a85 = array("Smuggler", "Human", "Sling", "1d4", "Waterproof Sack");
 		$a86 = array("Squire", "Human", "Longsword", "1d8", "Steel Helmet");
 		$a87 = array("Herald", "Human", "Longsword", "1d8", "Steel Helmet");
-		$a88 = array("Tax Collector", "Human", "Longsword", "1d8", "100 cp");
+		$a88 = array("Tax Collector", "Human", "Longsword", "1d8", "");
 		$a89 = array("Trapper", "Human", "Sling", "1d4", "Badger Pelt");
 		$a90 = array("Molecatcher", "Human", "Sling", "1d4", "Mole Pelt");
 		$a91 = array("Urchin", "Human", "Stick (as Club)", "1d4", "Begging Bowl");
@@ -128,9 +128,37 @@ function getOccupation($input)
         
 }
 
-function getOccupationNumber()
+function getOccupationNumber($select)
 {
+	if($select == "1")
+	{
         $number = rand(0, 100);
+	}
+	else if($select == "2")
+	{
+        $number = rand(31, 100);
+	}
+	else if($select == "3")
+	{
+        $number = rand(0, 30);
+	}
+	else if($select == "4")
+	{
+        $number = rand(0, 10);
+	}
+	else if($select == "5")
+	{
+        $number = rand(11, 20);
+	}
+	else if($select == "6")
+	{
+        $number = rand(21, 30);
+	}
+	else
+	{
+        $number = rand(98, 100);
+	}
+
         return $number;
 }
 

@@ -23,7 +23,6 @@
     <?php
     
     include 'php/characterSex.php';
-    include 'php/characterName.php';
     include 'php/alignment.php';
     include 'php/diceRoll.php';
     include 'php/message.php';
@@ -33,6 +32,8 @@
     include 'php/wealth.php';
     include 'php/equipment.php';
     include 'php/languages.php';
+    include 'php/notes.php';
+    include 'php/nameSelect.php';
     
         
         if(isset($_POST["theSex"]))
@@ -47,23 +48,69 @@
         $sexOfCharacter2 = getSex($characterSex);
         $sexOfCharacter3 = getSex($characterSex);
     
-        $characterName0 = getCharacterName($sexOfCharacter0);
-        $characterName1 = getCharacterName($sexOfCharacter1);
-        $characterName2 = getCharacterName($sexOfCharacter2);
-        $characterName3 = getCharacterName($sexOfCharacter3);
+    
 
-        $characterSurname0 = getSurname();
-        $characterSurname1 = getSurname();
-        $characterSurname2 = getSurname();
-        $characterSurname3 = getSurname();
-    
-        if(isset($_POST["theCharacterName"]))
+
+        if(isset($_POST["theGivenName"]))
         {
-            $nameOption = $_POST["theCharacterName"];
-    
+            $givenName = $_POST["theGivenName"];
+
         }
-    
-            
+
+        if($givenName == '100')
+        {
+            $givenName0 = rand(0, 49);
+            $givenName1 = rand(0, 49);
+            $givenName2 = rand(0, 49);
+            $givenName3 = rand(0, 49);
+        }
+        else
+        {
+            $givenName0 = $givenName;
+            $givenName1 = $givenName;
+            $givenName2 = $givenName;
+            $givenName3 = $givenName;
+        }
+        
+
+
+        if(isset($_POST["theSurname"]))
+        {
+            $surname = $_POST["theSurname"];
+
+        }
+
+        if($givenName == '100')
+        {
+            $surname0 = rand(0, 37);
+            $surname1 = rand(0, 37);
+            $surname2 = rand(0, 37);
+            $surname3 = rand(0, 37);
+        }
+        else
+        {
+            $surname0 = $surname;
+            $surname1 = $surname;
+            $surname2 = $surname;
+            $surname3 = $surname;
+        }
+
+        $genderName0 = getNameGender($sexOfCharacter0);
+        $genderName1 = getNameGender($sexOfCharacter1);
+        $genderName2 = getNameGender($sexOfCharacter2);
+        $genderName3 = getNameGender($sexOfCharacter3);
+
+        $characterName0 = getName($givenName0, $surname0, $genderName0);
+        $characterName1 = getName($givenName1, $surname1, $genderName1);
+        $characterName2 = getName($givenName2, $surname2, $genderName2);
+        $characterName3 = getName($givenName3, $surname3, $genderName3);
+
+        $nameSelectMessage0 = getNameDescript($givenName0, $surname0);
+        $nameSelectMessage1 = getNameDescript($givenName1, $surname1);
+        $nameSelectMessage2 = getNameDescript($givenName2, $surname2);
+        $nameSelectMessage3 = getNameDescript($givenName3, $surname3);
+
+
         if(isset($_POST["theAlignment"]))
         {
             $alignOption = $_POST["theAlignment"];
@@ -208,18 +255,30 @@
             $hitPoints3 = 4;
         }
 
-        /*
-        if(isset($_POST["theStartingEquip"]))
-        {
-            $startingEquipment = $_POST["theStartingEquip"];
         
-        }*/
+        if(isset($_POST["theOccupations"]))
+        {
+            $occupationsSelection = $_POST["theOccupations"];
+        
+        }
 
 
-        $professionNum0 = getOccupationNumber(); 
-        $professionNum1 = getOccupationNumber(); 
-        $professionNum2 = getOccupationNumber(); 
-        $professionNum3 = getOccupationNumber();
+
+        $professionNum0 = getOccupationNumber($occupationsSelection); 
+        $professionNum1 = getOccupationNumber($occupationsSelection); 
+        $professionNum2 = getOccupationNumber($occupationsSelection); 
+        $professionNum3 = getOccupationNumber($occupationsSelection);
+
+        
+        $notes0 = getNotes($professionNum0);
+        $notes1 = getNotes($professionNum1);
+        $notes2 = getNotes($professionNum2);
+        $notes3 = getNotes($professionNum3);
+
+        $armour0 = getArmour($professionNum0);
+        $armour1 = getArmour($professionNum1);
+        $armour2 = getArmour($professionNum2);
+        $armour3 = getArmour($professionNum3);
 
         $occupationArray0 = array();
         $occupationArray1 = array();
@@ -332,6 +391,11 @@
         $critMod2 = getCritMod($luckMod2, $birthAugurNo2);
         $critMod3 = getCritMod($luckMod3, $birthAugurNo3);
 
+        $fumbieDie0 = getFumbleDie($professionNum0);
+        $fumbieDie1 = getFumbleDie($professionNum1);
+        $fumbieDie2 = getFumbleDie($professionNum2);
+        $fumbieDie3 = getFumbleDie($professionNum3);
+
         $fumbleMod0 = getFumbleMod($luckMod0, $birthAugurNo0);
         $fumbleMod1 = getFumbleMod($luckMod1, $birthAugurNo1);
         $fumbleMod2 = getFumbleMod($luckMod2, $birthAugurNo2);
@@ -341,6 +405,16 @@
         $armourClass1 = getAC($agilityMod1, $luckMod1, $birthAugurNo1); 
         $armourClass2 = getAC($agilityMod2, $luckMod2, $birthAugurNo2); 
         $armourClass3 = getAC($agilityMod3, $luckMod3, $birthAugurNo3); 
+
+        $armourBonus0 = getACBonusArmour($professionNum0);
+        $armourBonus1 = getACBonusArmour($professionNum1);
+        $armourBonus2 = getACBonusArmour($professionNum2);
+        $armourBonus3 = getACBonusArmour($professionNum3);
+
+        $armourClassWithArmour0 = $armourClass0 + $armourBonus0;
+        $armourClassWithArmour1 = $armourClass1 + $armourBonus1;
+        $armourClassWithArmour2 = $armourClass2 + $armourBonus2;
+        $armourClassWithArmour3 = $armourClass3 + $armourBonus3;
 
         $hotPointLuckBonus0 = getHitPointLuck($luckMod0, $birthAugurNo0);
         $hotPointLuckBonus1 = getHitPointLuck($luckMod1, $birthAugurNo1);
@@ -397,16 +471,15 @@
         $will2 = $personalityMod2 + $willLuckBonus2;
         $will3 = $personalityMod3 + $willLuckBonus3;
 
-        $wealth0 = getStartingWealth();
-        $wealth1 = getStartingWealth();
-        $wealth2 = getStartingWealth();
-        $wealth3 = getStartingWealth();
+        $wealth0 = getStartingWealth($professionNum0);
+        $wealth1 = getStartingWealth($professionNum1);
+        $wealth2 = getStartingWealth($professionNum2);
+        $wealth3 = getStartingWealth($professionNum3);
 
         $languages0 = array();
         $languages1 = array();
         $languages2 = array();
         $languages3 = array();
-        
 
         $languages0 = getLanguages($intelligenceMod0, $luckMod0, $birthAugurNo0, $species0, $characterAlignment0, $intelligence0);
         $languages1 = getLanguages($intelligenceMod1, $luckMod1, $birthAugurNo1, $species1, $characterAlignment1, $intelligence1);
@@ -418,106 +491,20 @@
         $equipment2 = array();
         $equipment3 = array();
 
-        /*
+        $randomStartingEquip0 = getRandomEquipment();
+        $randomStartingEquip1 = getRandomEquipment();
+        $randomStartingEquip2 = getRandomEquipment();
+        $randomStartingEquip3 = getRandomEquipment();
 
         array_push($equipment0, $occupationArray0[4]);
         array_push($equipment1, $occupationArray1[4]);
         array_push($equipment2, $occupationArray2[4]);
-        array_push($equipment3, $occupationArray3[4]);*/
-
+        array_push($equipment3, $occupationArray3[4]);
         
-        if($profession0 == "Cartwright")
-        {
-            $cartContents0 = getcartContents();
-            array_push($equipment0, $cartContents0);
-        }
-        
-        if($profession1 == "Cartwright")
-        {
-            $cartContents1 = getcartContents();
-            array_push($equipment1, $cartContents1);
-        }
-        
-        if($profession2 == "Cartwright")
-        {
-            $cartContents2 = getcartContents();
-            array_push($equipment2, $cartContents2);
-        }
-        
-        if($profession3 == "Cartwright")
-        {
-            $cartContents3 = getcartContents();
-            array_push($equipment3, $cartContents3);
-        }
-
-        if($profession0 == "Farmer")
-        {
-            $bird0 = getBird();
-            array_push($equipment0, $bird0);
-        }
-        
-        if($profession1 == "Farmer")
-        {
-            $bird1 = getBird();
-            array_push($equipment1, $bird1);
-        }
-        
-        if($profession2 == "Farmer")
-        {
-            $bird2 = getBird();
-            array_push($equipment2, $bird2);
-        }
-        
-        if($profession3 == "Farmer")
-        {
-            $bird3 = getBird();
-            array_push($equipment3, $bird3);
-        }
-
-        if($occupationArray0[4] != '')
-        {
-            array_push($equipment0, ', ');
-            array_push($equipment0, $occupationArray0[4]);
-        }
-
-        if($occupationArray1[4] != '')
-        {
-            array_push($equipment1, ', ');
-            array_push($equipment1, $occupationArray1[4]);
-        }
-
-        if($occupationArray2[4] != '')
-        {
-            array_push($equipment2, ', ');
-            array_push($equipment2, $occupationArray2[4]);
-        }
-
-        if($occupationArray3[4] != '')
-        {
-            array_push($equipment3, ', ');
-            array_push($equipment3, $occupationArray3[4]);
-        }
-
-        /*
-        if($startingEquipment == 1)
-        {
-            $randomStartingEquip0 = getRandomEquipment();
-            $randomStartingEquip1 = getRandomEquipment();
-            $randomStartingEquip2 = getRandomEquipment();
-            $randomStartingEquip3 = getRandomEquipment();
-            
-            array_push($equipment0, ' & ');
-            array_push($equipment0, $randomStartingEquip0);
-            
-            array_push($equipment1, ' & ');
-            array_push($equipment1, $randomStartingEquip1);
-            
-            array_push($equipment2, ' & ');
-            array_push($equipment2, $randomStartingEquip2);
-            
-            array_push($equipment3, ' & ');
-            array_push($equipment3, $randomStartingEquip3);
-        }*/
+        array_push($equipment0, $randomStartingEquip0);
+        array_push($equipment1, $randomStartingEquip1);
+        array_push($equipment2, $randomStartingEquip2);
+        array_push($equipment3, $randomStartingEquip3);
 
 
     ?>
@@ -531,14 +518,10 @@
 	   <aside id="topleft">
     	<span id="name0">
            <?php
-            if($nameOption == 0)
-               {
-                    echo $characterName0 . ' ' . $characterSurname0;   
-               }
-            else
-            {
-                echo '';
-            }
+
+           echo $characterName0;
+
+
             ?>
            </span>
            
@@ -631,7 +614,7 @@
         
         <p id="armourClass0"> 
         <?php
-            echo $armourClass0;
+            echo $armourClassWithArmour0.  ' (' . $armourClass0 .')';
             ?>
         </p>
 
@@ -698,7 +681,7 @@
         <span id="fumbleDie0">
         <?php
             $fumbleMod0 = getModSign($fumbleMod0);
-            echo 'd4' . $fumbleMod0;
+            echo $fumbieDie0 . $fumbleMod0;
         ?>
         </span>
            
@@ -741,6 +724,14 @@
             
             ?>
         </span>
+
+        <span id="armour0">
+            <?php
+            echo $armour0;
+            ?>
+        </span>
+
+
            
            
 		<span id="critDie0">
@@ -753,7 +744,7 @@
            
            <span id="wealth0">
            <?php
-            echo $wealth0 . ' cp';
+            echo $wealth0;
             ?>
            </span>
            
@@ -796,18 +787,39 @@
 
            <span id="equipment0">
            <?php
+
+           $equipCount = count($equipment0);
+
+
            foreach($equipment0 as $equip)
            {
-               echo $equip;
+               if($equipCount > 1)
+               {
+                    echo 'Trade Goods: ' . $equip . " & ";
+
+               }
+               else
+               {
+                    echo $equip;
+               }
+
+               --$equipCount;
+
 
            }
            ?>
            </span>
+
+           <span id="notes0">
+           <?php
+            echo $notes0;
+           ?>
+            </span>
            
 		   <span id="dieRollMethod0"> 
            <?php
             
-            echo $dieRollMessage . $hitPointsMessage;
+            echo $nameSelectMessage0 . '<br/>' . $dieRollMessage . $hitPointsMessage;
             
             ?> 
             </span>
@@ -820,14 +832,9 @@
 	   <aside id="topright">
     	<span id="name1">
            <?php
-            if($nameOption == 0)
-               {
-                    echo $characterName1 . ' ' . $characterSurname1;   
-               }
-            else
-            {
-                echo '';
-            }
+           
+           echo $characterName1;
+            
             ?>
            </span>
 
@@ -920,7 +927,7 @@
            
         <p id="armourClass1">
         <?php
-            echo $armourClass1;
+            echo $armourClassWithArmour1.  ' (' . $armourClass1 .')';
             ?>
             </p>
 
@@ -989,7 +996,7 @@
         <span id="fumbleDie1">
         <?php
             $fumbleMod1 = getModSign($fumbleMod1);
-            echo 'd4' . $fumbleMod1;
+            echo $fumbieDie1 . $fumbleMod1;
         ?>
         </span>
            
@@ -1033,6 +1040,12 @@
             
             ?>
         </span>
+        
+        <span id="armour1">
+            <?php
+            echo $armour1;
+            ?>
+        </span>
            
            
 		<span id="critDie1">
@@ -1046,7 +1059,7 @@
                       
            <span id="wealth1">
            <?php
-            echo $wealth1 . ' cp';
+            echo $wealth1;
             ?>
            </span>
            
@@ -1087,18 +1100,39 @@
            
            <span id="equipment1">
            <?php
-           foreach($equipment1 as $equip)
-           {
-               echo $equip;
 
-           }
+            $equipCount = count($equipment1);
+
+
+            foreach($equipment1 as $equip)
+            {
+                if($equipCount > 1)
+                {
+                    echo 'Trade Goods: ' . $equip . " & ";
+
+                }
+                else
+                {
+                    echo $equip;
+                }
+
+                --$equipCount;
+
+
+            }
            ?>
            </span>
+
+           <span id="notes1">
+           <?php
+            echo $notes1;
+           ?>
+            </span>
 
            <span id="dieRollMethod1">
            <?php
             
-            echo $dieRollMessage . $hitPointsMessage;
+            echo $nameSelectMessage1 . '<br/>' .  $dieRollMessage . $hitPointsMessage;
             
             ?> 
             </span>
@@ -1115,15 +1149,12 @@
     	<span id="name2">
             
            <?php
-            if($nameOption == 0)
-               {
-                    echo $characterName2 . ' ' . $characterSurname2;   
-               }
-            else
-            {
-                echo '';
-            }
+           
+           echo $characterName2;
+ 
             ?>
+
+
            </span>
            
            <span id="strength2">
@@ -1214,7 +1245,7 @@
           
         <p id="armourClass2">
         <?php
-            echo $armourClass2;
+            echo $armourClassWithArmour2 .  ' (' . $armourClass2 .')';
             ?>
            </p>
 
@@ -1282,7 +1313,7 @@
         <span id="fumbleDie2">
         <?php
             $fumbleMod2 = getModSign($fumbleMod2);
-            echo 'd4' . $fumbleMod2;
+            echo $fumbieDie2 . $fumbleMod2;
         ?>
         </span>
            
@@ -1325,6 +1356,13 @@
             
             ?>
         </span>
+
+        
+        <span id="armour2">
+            <?php
+            echo $armour2;
+            ?>
+        </span>
            
            
 		<span id="critDie2">
@@ -1338,7 +1376,7 @@
                       
            <span id="wealth2">
            <?php
-            echo $wealth2 . ' cp';
+            echo $wealth2;
             ?>
            </span>
            
@@ -1379,18 +1417,39 @@
            
            <span id="equipment2">
            <?php
-           foreach($equipment2 as $equip)
-           {
-               echo $equip;
 
-           }
+            $equipCount = count($equipment2);
+
+
+            foreach($equipment2 as $equip)
+            {
+                if($equipCount > 1)
+                {
+                    echo 'Trade Goods: ' . $equip . " & ";
+
+                }
+                else
+                {
+                    echo $equip;
+                }
+
+                --$equipCount;
+
+
+            }
            ?>
            </span>
+
+           <span id="notes2">
+           <?php
+            echo $notes2;
+           ?>
+            </span>
            
            <span id="dieRollMethod2">
            <?php
             
-            echo $dieRollMessage . $hitPointsMessage;
+            echo $nameSelectMessage2 . '<br/>' .  $dieRollMessage . $hitPointsMessage;
             
             ?> 
             </span>
@@ -1403,14 +1462,9 @@
 	   <aside id="bottomright">
     	<span id="name3">
            <?php
-            if($nameOption == 0)
-               {
-                    echo $characterName3 . ' ' . $characterSurname3;   
-               }
-            else
-            {
-                echo '';
-            }
+           
+           echo $characterName3;
+            
             ?></span>
 
 <span id="strength3">
@@ -1501,7 +1555,7 @@
         
         <p id="armourClass3"> 
         <?php
-            echo $armourClass3;
+            echo $armourClassWithArmour3 .  ' (' . $armourClass3 .')';
             ?>
            </p>
            
@@ -1571,7 +1625,7 @@
         <?php
         
             $fumbleMod3 = getModSign($fumbleMod3);
-            echo 'd4' . $fumbleMod3;
+            echo $fumbieDie3 . $fumbleMod3;
         ?>
         </span>
            
@@ -1615,6 +1669,13 @@
             
             ?>
         </span>
+
+        
+        <span id="armour3">
+            <?php
+            echo $armour3;
+            ?>
+        </span>
            
            
 		<span id="critDie3">
@@ -1626,7 +1687,7 @@
                       
            <span id="wealth3">
            <?php
-            echo $wealth3 . ' cp';
+            echo $wealth3;
             ?>
            </span>
            
@@ -1666,18 +1727,39 @@
            
            <span id="equipment3">
            <?php
-           foreach($equipment3 as $equip)
-           {
-               echo $equip;
 
-           }
+            $equipCount = count($equipment3);
+
+
+            foreach($equipment3 as $equip)
+            {
+                if($equipCount > 1)
+                {
+                    echo 'Trade Goods: ' . $equip . " & ";
+
+                }
+                else
+                {
+                    echo $equip;
+                }
+
+                --$equipCount;
+
+
+            }
            ?>
            </span>
+
+           <span id="notes3">
+           <?php
+            echo $notes3;
+           ?>
+            </span>
            
            <span id="dieRollMethod3">
            <?php
             
-            echo $dieRollMessage . $hitPointsMessage;
+            echo $nameSelectMessage3 . '<br/>' .  $dieRollMessage . $hitPointsMessage;
             
             ?> 
             </span>

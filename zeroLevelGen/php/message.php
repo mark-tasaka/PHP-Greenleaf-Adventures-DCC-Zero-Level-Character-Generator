@@ -1,5 +1,6 @@
 <?php
 
+
 function dieRollMethodText($choice)
 {
     switch($choice)
