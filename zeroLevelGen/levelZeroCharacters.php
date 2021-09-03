@@ -80,7 +80,7 @@
 
         }
 
-        if($givenName == '100')
+        if($surname == '100')
         {
             $surname0 = rand(0, 37);
             $surname1 = rand(0, 37);
@@ -790,23 +790,19 @@
 
            $equipCount = count($equipment0);
 
-
-           foreach($equipment0 as $equip)
+           if($equipment0[0] != "")
            {
-               if($equipCount > 1)
-               {
-                    echo 'Trade Goods: ' . $equip . " & ";
-
-               }
-               else
-               {
-                    echo $equip;
-               }
-
-               --$equipCount;
-
+                echo 'Trade Goods: ' . $equipment0[0] . " & ";
 
            }
+           else
+           {
+                echo $equipment0[0];
+           }
+
+           echo $equipment0[1];
+
+
            ?>
            </span>
 
@@ -1101,25 +1097,21 @@
            <span id="equipment1">
            <?php
 
-            $equipCount = count($equipment1);
+                $equipCount = count($equipment1);
 
-
-            foreach($equipment1 as $equip)
-            {
-                if($equipCount > 1)
+                if($equipment1[0] != "")
                 {
-                    echo 'Trade Goods: ' . $equip . " & ";
+                    echo 'Trade Goods: ' . $equipment1[0] . " & ";
 
                 }
                 else
                 {
-                    echo $equip;
+                    echo $equipment1[0];
                 }
 
-                --$equipCount;
+                echo $equipment1[1];
 
 
-            }
            ?>
            </span>
 
@@ -1418,25 +1410,19 @@
            <span id="equipment2">
            <?php
 
-            $equipCount = count($equipment2);
-
-
-            foreach($equipment2 as $equip)
-            {
-                if($equipCount > 1)
+                if($equipment2[0] != "")
                 {
-                    echo 'Trade Goods: ' . $equip . " & ";
+                    echo 'Trade Goods: ' . $equipment2[0] . " & ";
 
                 }
                 else
                 {
-                    echo $equip;
+                    echo $equipment2[0];
                 }
 
-                --$equipCount;
+                echo $equipment2[1];
 
 
-            }
            ?>
            </span>
 
@@ -1728,25 +1714,20 @@
            <span id="equipment3">
            <?php
 
-            $equipCount = count($equipment3);
 
-
-            foreach($equipment3 as $equip)
-            {
-                if($equipCount > 1)
+                if($equipment3[0] != "")
                 {
-                    echo 'Trade Goods: ' . $equip . " & ";
+                    echo 'Trade Goods: ' . $equipment3[0] . " & ";
 
                 }
                 else
                 {
-                    echo $equip;
+                    echo $equipment3[0];
                 }
 
-                --$equipCount;
+                echo $equipment3[1];
 
 
-            }
            ?>
            </span>
 
