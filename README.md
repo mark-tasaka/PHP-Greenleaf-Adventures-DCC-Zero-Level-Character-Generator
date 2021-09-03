@@ -3,6 +3,18 @@ The fifth iteration of the Dungeon Crawl Classics Zero-Level Character Generator
 
 ---------------
 
+Live version of the Greenleaf Adventures Zero-Level Character Generator:
+
+https://www.tasaka-games.com/greenleaf/
+
+-----------------
+
+
+Update 1.04: 2021-09-03
+
+Corrected a minor bug with the program.  Added a link to a live version of the zero-level character generator.
+
+
 
 
 Update 1.03: 2021-09-01
