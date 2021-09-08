@@ -167,5 +167,17 @@ function getModSign($mod)
     }
 }
 
+function getModSignFumble($mod)
+{
+    if($mod > 0)
+    {
+        return '+' . $mod;
+    }
+    else
+    {
+        return $mod;
+    }
+    
+}
 
 ?>
