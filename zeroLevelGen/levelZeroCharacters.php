@@ -680,7 +680,7 @@
            
         <span id="fumbleDie0">
         <?php
-            $fumbleMod0 = getModSignFumble($fumbleMod0);
+            $fumbleMod0 = getModSign($fumbleMod0);
             echo $fumbieDie0 . $fumbleMod0;
         ?>
         </span>
@@ -991,7 +991,7 @@
            
         <span id="fumbleDie1">
         <?php
-            $fumbleMod1 = getModSignFumble($fumbleMod1);
+            $fumbleMod1 = getModSign($fumbleMod1);
             echo $fumbieDie1 . $fumbleMod1;
         ?>
         </span>
@@ -1304,7 +1304,7 @@
            
         <span id="fumbleDie2">
         <?php
-            $fumbleMod2 = getModSignFumble($fumbleMod2);
+            $fumbleMod2 = getModSign($fumbleMod2);
             echo $fumbieDie2 . $fumbleMod2;
         ?>
         </span>
@@ -1610,7 +1610,7 @@
         <span id="fumbleDie3">
         <?php
         
-            $fumbleMod3 = getModSignFumble($fumbleMod3);
+            $fumbleMod3 = getModSign($fumbleMod3);
             echo $fumbieDie3 . $fumbleMod3;
         ?>
         </span>
