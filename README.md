@@ -10,6 +10,13 @@ https://www.tasaka-games.com/greenleaf/
 -----------------
 
 
+
+Update 1.06: 2021-09-14
+
+Added more functionality to zero-level character generator.
+
+
+
 Update 1.05: 2021-09-08
 
 Corrected a minor bug with the program.  
