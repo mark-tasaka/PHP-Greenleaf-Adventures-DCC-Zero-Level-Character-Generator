@@ -680,7 +680,7 @@
            
         <span id="fumbleDie0">
         <?php
-            $fumbleMod0 = getModSign($fumbleMod0);
+            $fumbleMod0 = getModSign2($fumbleMod0);
             echo $fumbieDie0 . $fumbleMod0;
         ?>
         </span>
@@ -737,7 +737,7 @@
 		<span id="critDie0">
         <?php
         
-        $critMod0 = getModSign($critMod0);
+        $critMod0 = getModSign2($critMod0);
             echo 'd4' . $critMod0 . ' / I';  
         ?>
         </span>
@@ -991,7 +991,7 @@
            
         <span id="fumbleDie1">
         <?php
-            $fumbleMod1 = getModSign($fumbleMod1);
+            $fumbleMod1 = getModSign2($fumbleMod1);
             echo $fumbieDie1 . $fumbleMod1;
         ?>
         </span>
@@ -1047,7 +1047,7 @@
 		<span id="critDie1">
         <?php
         
-        $critMod1 = getModSign($critMod1);
+        $critMod1 = getModSign2($critMod1);
             echo 'd4' . $critMod1 . ' / I';  
         ?>
         </span>
@@ -1304,7 +1304,7 @@
            
         <span id="fumbleDie2">
         <?php
-            $fumbleMod2 = getModSign($fumbleMod2);
+            $fumbleMod2 = getModSign2($fumbleMod2);
             echo $fumbieDie2 . $fumbleMod2;
         ?>
         </span>
@@ -1360,7 +1360,7 @@
 		<span id="critDie2">
         <?php
         
-        $critMod2 = getModSign($critMod2);
+        $critMod2 = getModSign2($critMod2);
             echo 'd4' . $critMod2 . ' / I';  
         ?>
         </span>
@@ -1610,7 +1610,7 @@
         <span id="fumbleDie3">
         <?php
         
-            $fumbleMod3 = getModSign($fumbleMod3);
+            $fumbleMod3 = getModSign2($fumbleMod3);
             echo $fumbieDie3 . $fumbleMod3;
         ?>
         </span>
@@ -1666,7 +1666,7 @@
            
 		<span id="critDie3">
         <?php
-            $critMod3 = getModSign($critMod3);
+            $critMod3 = getModSign2($critMod3);
             echo 'd4' . $critMod3 . ' / I';  
         ?>
         </span>

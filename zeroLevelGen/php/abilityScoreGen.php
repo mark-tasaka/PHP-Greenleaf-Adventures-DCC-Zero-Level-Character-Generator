@@ -168,4 +168,21 @@ function getModSign($mod)
 }
 
 
+function getModSign2($mod)
+{
+    if($mod > 0)
+    {
+        return '+' . $mod;
+    }
+    else if($mod === 0)
+    {
+        return '';
+    }
+    else
+    {
+        return $mod;
+    }
+}
+
+
 ?>
